@@ -9,13 +9,16 @@ export default function App() {
     const diceNumbers = [];
 
     for (let i = 0; i < 10; i++) {
-      diceNumbers.push(Math.floor(Math.random() * 6) + 1);
+      diceNumbers.push({
+        value: Math.floor(Math.random() * 6) + 1,
+        isHeld: false,
+      });
     }
 
     return diceNumbers;
   }
 
-  const allDice = diceNumbers.map(diceNumber => <Dice value={diceNumber} />);
+  const allDice = diceNumbers.map(diceNumber => <Dice value={diceNumber.value} />);
 
   function rollDiceNumbers() {
     setDiceNumbers(defineDiceNumbers());
@@ -25,11 +28,9 @@ export default function App() {
     <div className="container">
       <main className="main__content">
         <div className="dice__container">{allDice}</div>
-        <button 
-          className="rollDice__button" 
-          onClick={rollDiceNumbers}>
+        <button className="rollDice__button" onClick={rollDiceNumbers}>
           Roll
-          </button>
+        </button>
       </main>
     </div>
   );
