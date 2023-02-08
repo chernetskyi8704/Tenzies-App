@@ -17,12 +17,19 @@ export default function App() {
 
   const allDice = diceNumbers.map(diceNumber => <Dice value={diceNumber} />);
 
+  function rollDiceNumbers() {
+    setDiceNumbers(defineDiceNumbers());
+  }
+
   return (
     <div className="container">
       <main className="main__content">
-        <section className="dice__container">
-          {allDice}
-        </section>
+        <div className="dice__container">{allDice}</div>
+        <button 
+          className="rollDice__button" 
+          onClick={rollDiceNumbers}>
+          Roll
+          </button>
       </main>
     </div>
   );
