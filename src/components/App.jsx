@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/App.css";
 import { Dice } from "./Dice.jsx";
+import { nanoid } from "nanoid";
 
 export default function App() {
   const [diceNumbers, setDiceNumbers] = React.useState(defineDiceNumbers());
@@ -12,13 +13,19 @@ export default function App() {
       diceNumbers.push({
         value: Math.floor(Math.random() * 6) + 1,
         isHeld: false,
+        id: nanoid(),
       });
     }
 
     return diceNumbers;
   }
 
-  const allDice = diceNumbers.map(diceNumber => <Dice value={diceNumber.value} />);
+  const allDice = diceNumbers.map(diceNumber => (
+    <Dice 
+      value={diceNumber.value} 
+      key={diceNumber.id} 
+    />
+  ));
 
   function rollDiceNumbers() {
     setDiceNumbers(defineDiceNumbers());
