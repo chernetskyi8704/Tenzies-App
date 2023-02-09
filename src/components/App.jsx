@@ -6,12 +6,18 @@ import { nanoid } from "nanoid";
 export default function App() {
   const [dice, setDice] = React.useState(defineDiceNumbers());
 
+  function getRandomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   function defineDiceNumbers() {
     const dice = [];
 
     for (let i = 0; i < 10; i++) {
       dice.push({
-        value: Math.floor(Math.random() * 6) + 1,
+        value: getRandomNumber(1, 6),
         isHeld: false,
         id: nanoid(),
       });
