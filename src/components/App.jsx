@@ -40,8 +40,12 @@ export default function App() {
     />
   ));
 
-  function rollDiceNumbers() {
-    setDice(defineDiceNumbers());
+  function rollDice() {
+    setDice(prevDice => {
+      return prevDice.map(die => {
+        return die.isHeld ? die : createDie();
+      });
+    });
   }
 
   function holdDice(id) {
@@ -61,7 +65,7 @@ export default function App() {
     <div className="container">
       <main className="main__content">
         <div className="dice__container">{allDice}</div>
-        <button className="rollDice__button" onClick={rollDiceNumbers}>
+        <button className="rollDice__button" onClick={rollDice}>
           Roll
         </button>
       </main>
