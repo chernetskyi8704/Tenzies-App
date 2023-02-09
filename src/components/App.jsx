@@ -24,6 +24,7 @@ export default function App() {
     <Dice 
       value={diceNumber.value} 
       key={diceNumber.id} 
+      isHeld={diceNumber.isHeld}
     />
   ));
 
