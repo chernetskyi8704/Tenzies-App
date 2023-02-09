@@ -1,6 +1,6 @@
-import "../styles/Dice.css";
+import "../styles/Die.css";
 
-export function Dice(props) {
+export function Die(props) {
   const styles = {
     backgroundColor: props.isHeld ? "#59E391" : "#ffffff",
   };

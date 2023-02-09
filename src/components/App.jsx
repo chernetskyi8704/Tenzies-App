@@ -1,27 +1,27 @@
 import React from "react";
 import "../styles/App.css";
-import { Dice } from "./Dice.jsx";
+import { Die } from "./Die.jsx";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [diceNumbers, setDiceNumbers] = React.useState(defineDiceNumbers());
+  const [dice, setDice] = React.useState(defineDiceNumbers());
 
   function defineDiceNumbers() {
-    const diceNumbers = [];
+    const dice = [];
 
     for (let i = 0; i < 10; i++) {
-      diceNumbers.push({
+      dice.push({
         value: Math.floor(Math.random() * 6) + 1,
         isHeld: false,
         id: nanoid(),
       });
     }
 
-    return diceNumbers;
+    return dice;
   }
 
-  const allDice = diceNumbers.map(dice => (
-    <Dice
+  const allDice = dice.map(dice => (
+    <Die
       value={dice.value}
       key={dice.id}
       isHeld={dice.isHeld}
@@ -31,18 +31,18 @@ export default function App() {
   ));
 
   function rollDiceNumbers() {
-    setDiceNumbers(defineDiceNumbers());
+    setDice(defineDiceNumbers());
   }
 
   function holdDice(id) {
-    setDiceNumbers(prevDiceNumbers => {
-      return prevDiceNumbers.map(dice => {
-        return dice.id === id
+    setDice(prevDice => {
+      return prevDice.map(die => {
+        return die.id === id
           ? {
-              ...dice,
-              isHeld: !dice.isHeld,
+              ...die,
+              isHeld: !die.isHeld,
             }
-          : dice;
+          : die;
       });
     });
   }
