@@ -20,16 +20,31 @@ export default function App() {
     return diceNumbers;
   }
 
-  const allDice = diceNumbers.map(diceNumber => (
-    <Dice 
-      value={diceNumber.value} 
-      key={diceNumber.id} 
-      isHeld={diceNumber.isHeld}
+  const allDice = diceNumbers.map(dice => (
+    <Dice
+      value={dice.value}
+      key={dice.id}
+      isHeld={dice.isHeld}
+      holdDice={holdDice}
+      id={dice.id}
     />
   ));
 
   function rollDiceNumbers() {
     setDiceNumbers(defineDiceNumbers());
+  }
+
+  function holdDice(id) {
+    setDiceNumbers(prevDiceNumbers => {
+      return prevDiceNumbers.map(dice => {
+        return dice.id === id
+          ? {
+              ...dice,
+              isHeld: !dice.isHeld,
+            }
+          : dice;
+      });
+    });
   }
 
   return (
