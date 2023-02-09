@@ -4,7 +4,7 @@ import { Die } from "./Die.jsx";
 import { nanoid } from "nanoid";
 
 export default function App() {
-  const [dice, setDice] = React.useState(defineDiceNumbers());
+  const [dice, setDice] = React.useState(() => defineDiceNumbers());
 
   function getRandomNumber(min, max) {
     min = Math.ceil(min);
