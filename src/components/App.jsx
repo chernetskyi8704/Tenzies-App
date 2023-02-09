@@ -64,6 +64,11 @@ export default function App() {
   return (
     <div className="container">
       <main className="main__content">
+        <h1 className="main__title">Tenzies</h1>
+        <p className="main__description">
+          Roll until all dice are the same. Click each die to freeze it at its
+          current value between rolls.
+        </p>
         <div className="dice__container">{allDice}</div>
         <button className="rollDice__button" onClick={rollDice}>
           Roll

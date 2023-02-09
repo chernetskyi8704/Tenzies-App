@@ -4,6 +4,7 @@
     justify-content: center;
     height: 100vh;
     background-color: #2B283A;
+    color: #2b283a;
 }
 
 .main__content{
@@ -11,14 +12,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 30px;
     height:520px;
     width: 520px;
     background-color: #FFFFFF;
     border-radius: 5%;
 }
 
+.main__title {
+    font-size: 42px;
+}
+
+.main__description {
+    width: 400px;
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
 .rollDice__button{
-    margin-top: 50px;
     height: 50px;
     width: 120px;
     border-radius: 15px;
