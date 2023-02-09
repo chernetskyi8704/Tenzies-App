@@ -12,15 +12,19 @@ export default function App() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  function createDie() {
+    return {
+      value: getRandomNumber(1, 6),
+      isHeld: false,
+      id: nanoid(),
+    };
+  }
+
   function defineDiceNumbers() {
     const dice = [];
 
     for (let i = 0; i < 10; i++) {
-      dice.push({
-        value: getRandomNumber(1, 6),
-        isHeld: false,
-        id: nanoid(),
-      });
+      dice.push(createDie());
     }
 
     return dice;
