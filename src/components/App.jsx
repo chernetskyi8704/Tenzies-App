@@ -59,6 +59,11 @@ export default function App() {
     });
   }
 
+  function playAgain() {
+    setDice(() => defineDiceNumbers());
+    setIsGameWon(false);
+  }
+
   function holdDice(id) {
     setDice(prevDice => {
       return prevDice.map(die => {
@@ -75,10 +80,7 @@ export default function App() {
   return (
     <div className="container">
       {isGameWon && (
-        <Confetti 
-        width={window.innerWidth} 
-        height={window.innerHeight} 
-        />
+        <Confetti width={window.innerWidth} height={window.innerHeight} />
       )}
       <main className="main__content">
         <h1 className="main__title">Tenzies</h1>
@@ -86,10 +88,12 @@ export default function App() {
           Roll until all dice are the same. Click each die to freeze it at its
           current value between rolls.
         </p>
-        {isGameWon && <Won/>}
+        {isGameWon && <Won />}
         {!isGameWon && <div className="dice__container">{allDice}</div>}
-        <button className={isGameWon? "rollDice__button blink" : "rollDice__button"} 
-                onClick={rollDice}>
+        <button
+          className={isGameWon ? "rollDice__button blink" : "rollDice__button"}
+          onClick={isGameWon ? playAgain : rollDice}
+        >
           {isGameWon ? "Play again?" : "Roll dice"}
         </button>
       </main>
