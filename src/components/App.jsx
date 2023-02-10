@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/App.css";
 import { Die } from "./Die.jsx";
 import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
 
 export default function App() {
   const [dice, setDice] = React.useState(() => defineDiceNumbers());
@@ -72,6 +73,12 @@ export default function App() {
 
   return (
     <div className="container">
+      {isGameWon && (
+        <Confetti 
+        width={window.innerWidth} 
+        height={window.innerHeight} 
+        />
+      )}
       <main className="main__content">
         <h1 className="main__title title">Tenzies</h1>
         <p className="main__description">
@@ -81,17 +88,12 @@ export default function App() {
         {isGameWon && (
           <div className="ifWon">
             <p className="ifWon__text title">Great job!</p>
-            <button className="ifWon__restartButton button">
-              Play again?
-            </button>
           </div>
         )}
         {!isGameWon && <div className="dice__container">{allDice}</div>}
-        {!isGameWon && (
-          <button className="rollDice__button button" onClick={rollDice}>
-            Roll
-          </button>
-        )}
+        <button className="rollDice__button" onClick={rollDice}>
+          {isGameWon ? "Play again?" : "Roll dice"}
+        </button>
       </main>
     </div>
   );
