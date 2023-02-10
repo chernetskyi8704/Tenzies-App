@@ -1,41 +1,52 @@
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #2B283A;
-    color: #2b283a;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2b283a;
+  color: #2b283a;
 }
 
-.main__content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    height:520px;
-    width: 520px;
-    background-color: #FFFFFF;
-    border-radius: 5%;
+.main__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 30px;
+  gap: 30px;
+  height: 520px;
+  width: 520px;
+  background-color: #ffffff;
+  border-radius: 5%;
+  user-select: none;
 }
 
-.main__title {
-    font-size: 42px;
+.title {
+  font-size: 42px;
 }
 
 .main__description {
-    width: 400px;
-    font-size: 24px;
-    letter-spacing: 3px;
+  width: 400px;
+  font-size: 24px;
+  letter-spacing: 3px;
 }
 
-.rollDice__button{
-    height: 50px;
-    width: 120px;
-    border-radius: 15px;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    color: #FFFFFF;
-    background-color: #5035FF;
+.ifWon {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 42px;
+  gap: 20px;
+}
+
+.button {
+  height: 50px;
+  width: 180px;
+  border-radius: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #ffffff;
+  background-color: #5035ff;
 }

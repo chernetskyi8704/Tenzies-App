@@ -5,6 +5,15 @@ import { nanoid } from "nanoid";
 
 export default function App() {
   const [dice, setDice] = React.useState(() => defineDiceNumbers());
+  const [isGameWon, setIsGameWon] = React.useState(false);
+
+  React.useEffect(() => {
+    const ifWon = dice.every(die => die.isHeld === true);
+
+    if (ifWon) {
+      setIsGameWon(true);
+    }
+  }, [dice]);
 
   function getRandomNumber(min, max) {
     min = Math.ceil(min);
@@ -64,15 +73,25 @@ export default function App() {
   return (
     <div className="container">
       <main className="main__content">
-        <h1 className="main__title">Tenzies</h1>
+        <h1 className="main__title title">Tenzies</h1>
         <p className="main__description">
           Roll until all dice are the same. Click each die to freeze it at its
           current value between rolls.
         </p>
-        <div className="dice__container">{allDice}</div>
-        <button className="rollDice__button" onClick={rollDice}>
-          Roll
-        </button>
+        {isGameWon && (
+          <div className="ifWon">
+            <p className="ifWon__text title">Great job!</p>
+            <button className="ifWon__restartButton button">
+              Play again?
+            </button>
+          </div>
+        )}
+        {!isGameWon && <div className="dice__container">{allDice}</div>}
+        {!isGameWon && (
+          <button className="rollDice__button button" onClick={rollDice}>
+            Roll
+          </button>
+        )}
       </main>
     </div>
   );
