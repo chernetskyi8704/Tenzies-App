@@ -1,0 +1,22 @@
+@keyframes blinker {
+    60% {
+      opacity: 0;
+    }
+  }
+
+.ifWon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 42px;
+    gap: 20px;
+  }
+
+  .ifWon__text {
+    font-size: 42px;
+  }
+
+  .blink {
+    animation: blinker 2.5s linear infinite;
+  }

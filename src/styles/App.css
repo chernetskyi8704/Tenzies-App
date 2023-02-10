@@ -21,7 +21,7 @@
   user-select: none;
 }
 
-.title {
+.main__title {
   font-size: 42px;
 }
 
@@ -29,15 +29,6 @@
   width: 400px;
   font-size: 24px;
   letter-spacing: 3px;
-}
-
-.ifWon {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 42px;
-  gap: 20px;
 }
 
 .rollDice__button {

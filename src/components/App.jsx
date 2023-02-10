@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/App.css";
 import { Die } from "./Die.jsx";
 import { nanoid } from "nanoid";
+import { Won } from "./Won.jsx";
 import Confetti from "react-confetti";
 
 export default function App() {
@@ -80,18 +81,15 @@ export default function App() {
         />
       )}
       <main className="main__content">
-        <h1 className="main__title title">Tenzies</h1>
+        <h1 className="main__title">Tenzies</h1>
         <p className="main__description">
           Roll until all dice are the same. Click each die to freeze it at its
           current value between rolls.
         </p>
-        {isGameWon && (
-          <div className="ifWon">
-            <p className="ifWon__text title">Great job!</p>
-          </div>
-        )}
+        {isGameWon && <Won/>}
         {!isGameWon && <div className="dice__container">{allDice}</div>}
-        <button className="rollDice__button" onClick={rollDice}>
+        <button className={isGameWon? "rollDice__button blink" : "rollDice__button"} 
+                onClick={rollDice}>
           {isGameWon ? "Play again?" : "Roll dice"}
         </button>
       </main>
